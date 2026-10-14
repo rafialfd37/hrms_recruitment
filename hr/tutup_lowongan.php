@@ -1,0 +1,1 @@
+<?php require_once '../config/auth.php';require_once '../config/database.php';require_role('hr');$id=(int)($_GET['id']??0);$s=$pdo->prepare('UPDATE lowongan SET status="Ditutup" WHERE id_lowongan=? AND status="Dipublikasikan"');$s->execute([$id]);flash('Lowongan ditutup.');header('Location: pelamar.php');exit;
